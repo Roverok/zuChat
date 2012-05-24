@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <meta property="og:title" content="zuChat" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://zuchat.com" />
+        <meta property="og:image" content="http://zuchat.com/fbicon.png" />
+        <meta property="og:site_name" content="zuChat" />
+        <meta property="fb:app_id" content="213199302051720" />
+        <meta property="og:description" content="Chat one-on-one anonymously with guys and girls, for free!"/>
+        <meta name="verifyownership" content="e642d6f05c19f3acd7dcb9027970f604" />
+        <meta name="google-site-verification" content="-4wrjEOjxT1jHtzyb0Rom7eWchRXM_2RnPC7rlOL6YA" />
+        <meta name="google-site-verification" content="lqqItudqDutuqtYRTvofQgrzXmIr5MnVOZ1tdoGtef8" />
+        <meta name="description" content="zuChat is a free service that provides one-on-one anonymous chats with anyone. zuChat makes online chatting a whole lot easier by allowing users the ability to specify the gender of who they would like to chat with." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="icon.png" type="image/png">
+        <link rel="shortcut icon" href="icon.png" type="image/png">
+        <link rel="stylesheet" href="style.css" />
+        
+        <script type="text/javascript">
+          var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-31548304-1']); _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+                
+        <script src="jquery-1.7.2.min.js"></script>
+        <script src="emoticon.js"></script>
+        <script src="imageuploads.js"></script>
+        <script src="verify.js"></script>
+        <script src="zuchat.js"></script>
+        
+        <title>zuChat</title>
+    </head>
+    
+    <body>
+        <div id="overlay"></div>
+        
+        <div id="explain">
+            <div id="explaincontents">
+                <img src="logo.png" alt="zuChat" /><br />
+                
+                <div class="question">
+                    <i>Are you a..</i><br />
+                    <span id="malespan" class="emp">Male</span> looking to talk to <span class="chatwith">WHOs</span>?<br />
+                    <i>or..</i><br />
+                    <span id="femalespan" class="emp">Female</span> looking to talk to <span class="chatwith">WHOs</span>?
+                </div>
+                
+                <p>Using Facebook, we can determine and verify users' genders. After allowing Facebook permissions to zuChat, you will be able to chat with <span class="chatwith">WHOs</span>.</p>
+                <p class="notice">* We respect your privacy; we never share your Facebook information.</p>
+                <span class="verifybutton" onclick="chatselected(requestedChatWith, false);">Verify</span>
+                <p class="linkstyle" onclick="cancelExplain();">Cancel and return to 'chat with anyone'</p>
+            </div>
+        </div>
+        
+        <div id="header" class="component">
+            <a href="/home" title="Home"><div id="logo"></div></a>
+            
+            <div id="chatselectorwrapper">
+                <span class="chatselector" id="anyone" onclick="chatselected('anyone', true)">chat with anyone</span>
+                <span class="chatselector" id="female" onclick="chatselected('female', true)">chat with <span class="femaleColor">girls</span></span>
+                <span class="chatselector" id="male" onclick="chatselected('male', true)">chat with <span class="maleColor">guys</span></span>
+            </div>
+            
+            <div id="likebutton">
+                <iframe id="likeframe" src="http://www.facebook.com/plugins/like.php?app_id=213199302051720&amp;href=http%3A%2F%2Fzuchat.com&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                <a href="http://www.facebook.com/sharer.php?u=zuchat.com" target="_blank" id="sharebutton"></a>
+            </div>
+        </div>
+        
+        <div id="bodywrapper">
+            <div id="intro" class="component">
+                <p id="description">
+                zuChat is a free service that provides one-on-one anonymous chats with anyone. zuChat makes online chatting a 
+                whole lot easier by allowing users the ability to specify the gender of who they would like to chat with.
+                </p>
+        
+                <p>
+                    <span class="chatoption">Choose who you would like to chat with:</span>
+                    <div>
+                        <span class="chatselector" onclick="chatselected('female', true)">chat with <span class="femaleColor">girls</span></span>
+                        <span class="chatselector" onclick="chatselected('male', true)">chat with <span class="maleColor">guys</span></span>
+                    </div>
+                </p>
+                
+                <span class="orchoose"> - or - </span>
+                        
+                <p>
+                    <div><span class="chatselector" onclick="chatselected('anyone', false)">chat with anyone</span></div>
+                    <span class="notice">Does not require facebook verification</span>
+                </p>
+                
+                <div id="belowdetails">
+                    &#169; 2011 zuChat  &#8226;  <a class="links" href="about">Terms of Service & Privacy Policy</a>  &#8226;  
+					<a class="links" href="mailto:contact@zuchat.com">Contact</a>
+                </div>
+                
+                <div id="socialplugins">
+                    <a href="http://www.youtube.com/user/zuChatCom?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_24x24.png">
+                    	<img src="youtube.png" alt="Subscribe to me on YouTube" border="0" />
+                    </a>
+                    
+                    <p>
+                    	<a href="http://www.twitter.com/zuchat"><img src="twitter.png" alt="Follow zuchat on Twitter" border="0" /></a>
+                    </p>
+                </div>
+            </div>
+            
+            <div id="chat">
+                <div id="log" class="component">
+                    <!--<div id="status">Click new to begin chatting</div>-->
+                </div>
+                
+                <div id="uploadbox" class="component">
+                
+                    <div id="loadinggif">
+                        <img src="loading.gif" />Uploading...
+                    </div>
+                    
+                    <div id="uploaddialog" onclick="document.querySelector('input').click()">
+                        <div id="uploadcover"><img src="image_upload.png" style="float:left;" /><span class="uploadimagetext">Upload <br />Image</span></div>
+                    </div>
+        
+                    <div id="uploadedimages"></div>
+                    
+                    <div id="hideuploadbox" class="uploadoptions" onclick="displayUploadBox(false);">Hide</div>
+                    <div id="clearuploadbox" class="uploadoptions" onclick="clearUploadBox();">Clear</div>
+                </div>
+                
+                <div id="control">
+                    <div id="mainbuttonwrapper" class="component">
+                        <button id="mainbutton" class="buttoncomponent" type="button" onclick="mainClick();">
+                            <span id="mainbuttontext">New</span>
+                            <div class="shortcuttip">Esc</div>
+                        </button>
+                    </div>
+                    
+                    <div id="textinputwrapper" class="component">
+                        <textarea id="textinput" disabled="disabled"></textarea>
+                    </div>
+                    
+                    <div id="emoticonswrapper" class="component">
+                        <div id="uploadimage" onclick="displayUploadBox(true);">Upload Image</div>
+                        <div id="emoticonsholder"></div>
+                        <div id="showmorespan" class="linkstyle" onclick="showExtra();">Show more</div>
+                    </div>
+                    
+                    <div id="sendbuttonwrapper" class="component" onclick="sendMessage()">
+                        <button id="sendbutton" class="buttoncomponent" type="button" onclick="sendMessage();">
+                            <span id="sendbuttontext">Send</span>
+                            <div class="shortcuttip">Enter</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="rightbox">
+            <div id="moreemoticonswrapper" class="component">
+                <div id="hidethese"><span class="linkstyle" onclick="hideExtra();">Hide these</span></div>
+                <div id="moreemoticons"></div>
+            </div>
+            
+            <div id="ads">
+            	<a href="http://peerfly.com/x/0/3713/2896/" target="_blank"><img src="banner-1.jpg" border="0"></a>
+            </div>
+        </div>
+        <input id="file_upload_form"/> 
+    </body>
+</html>

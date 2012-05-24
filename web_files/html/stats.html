@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="/icon.png" type="image/png">
+<link rel="shortcut icon" href="/icon.png" type="image/png">
+<title>zuChat Stats</title>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	getStats();
+});
+
+function handleNext(data){
+	setTimeout("getStats();", 700);
+	handleStats(data);
+}
+
+function getStats(){
+	$.ajax({
+		type: "GET",
+		url: "statsvalues",
+		dataType: "json",
+		cache: false,
+		success: function(data){
+			handleNext(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+			handleNext(data);
+		}  
+	});
+}
+
+function handleStats(data){
+	var stats = JSON.stringify(data, null, 4);
+	stats = stats.replace(/"/g, '');
+	stats = stats.replace(/{/g, '');
+	stats = stats.replace(/}/g, '');
+	stats = stats.replace(/,/g, '');
+	document.getElementById('statBox').value = stats;
+}
+</script>
+
+</head>
+
+<body>
+
+<textarea id='statBox' rows="20" cols="50" readonly="readonly" style="border:0;resize:none;outline:none;"></textarea>
+
+</body>
+</html>
